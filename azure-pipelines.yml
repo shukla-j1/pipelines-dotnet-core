@@ -11,7 +11,14 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
+#do not say added
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+   steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnetsay'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install -g dotnetsay'
